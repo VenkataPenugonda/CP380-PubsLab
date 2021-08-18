@@ -1,0 +1,32 @@
+﻿@page
+@model CP380_PubsWeb.Pages.Emps.IndexModel
+@{
+}
+<div class="row">
+    <div class="col-12">
+        <h2 class="text-primary">List of Employees for Job Id: @Request.Query["JobId"]</h2>
+    </div>
+    <div class="col-12">
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col">Employee ID</th>
+                    <th scope="col">Employee Name</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.EmpList)
+                {
+                <tr>
+                    <td>@Html.DisplayFor(m => item.emp_id)</td>
+                    <td>
+                        @Html.DisplayFor(m => item.fname)&nbsp;@Html.DisplayFor(m => item.lname)
+                    </td>
+                    
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
